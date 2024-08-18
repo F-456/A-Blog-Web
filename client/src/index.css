@@ -102,3 +102,37 @@ hr {
   max-width: 120px;
   max-height: 120px;
 }
+
+.createACCUI {
+  display: flex;
+  flex-direction: column;
+  margin-left: 40%;
+  text-align: center;
+  width: 350px;
+}
+
+.signup_form_style {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  border-style: solid;
+  border: 5px solid grey;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 20px;
+}
+
+.signup_form_style #input_signup {
+  margin: 10px;
+  height: 40px;
+  font-size: 20px;
+  border-radius: 10px;
+}
+
+.signup_form_style #signup_button {
+  padding: 10px;
+  margin: 15px;
+  font-size: 20px;
+  border-radius: 10px;
+}

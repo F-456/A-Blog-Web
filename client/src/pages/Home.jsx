@@ -25,7 +25,7 @@ function Home() {
         <>
             <Header></Header>
             <hr></hr>
-            <div className="group-card">
+            <div class="group-card">
                 <Card></Card>
                 <Card></Card>
                 <Card></Card>

@@ -8,7 +8,7 @@ const corsOption = {
 app.use(cors(corsOption));
 
 app.get("/api", (req, res) => {
-    res.json({ "users": ["Userone", "Usertwo", "Userthree"] })
+    res.json({ "users": ["Userone", "Usertwo", "Userthree", "Testing for express backend"] })
 })
 
 app.listen(3001, () => {
