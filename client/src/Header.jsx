@@ -9,8 +9,8 @@ function Header() {
             <nav class="horizontal_nav">
                 <ul>
                     {/* adding link to other pages */}
-                    <Link to="/CreateAccount" > <li class="horizontal_list" ><a class="horizontal_a" href=""> Login  </a></li> </Link>
-                    <li class="horizontal_list" ><a class="horizontal_a" href="">Signup</a></li>
+                    <li class="horizontal_list" ><a class="horizontal_a" href=""> Login  </a></li>
+                    <Link to="/CreateAccount" ><li class="horizontal_list" ><a class="horizontal_a" href="">Signup</a></li></Link>
                     <li class="horizontal_list" ><a class="horizontal_a" href="">Contact</a></li>
                 </ul>
             </nav>

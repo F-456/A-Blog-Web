@@ -136,3 +136,11 @@ hr {
   font-size: 20px;
   border-radius: 10px;
 }
+
+.signup_form_style #signup_button:hover {
+  background-color: rgb(57, 57, 57);
+  padding: 10px;
+  margin: 15px;
+  font-size: 20px;
+  border-radius: 10px;
+}
