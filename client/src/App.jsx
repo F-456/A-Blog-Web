@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Home from "./pages/Home.jsx";
 import CreateACC from "./pages/CreateAccount.jsx";
-
+import Login from "./pages/login.jsx";
 
 //main function that ties everyting together
 function App() {
@@ -16,6 +16,7 @@ function App() {
         <Route index element={<Home />} />
         {/* Route path require import function from location file instead of linking pages*/}
         <Route path="/CreateAccount" element={<CreateACC />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </Router>
 

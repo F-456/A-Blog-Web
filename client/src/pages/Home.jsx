@@ -25,12 +25,7 @@ function Home() {
         <>
             <Header></Header>
             <hr></hr>
-            <div class="group-card">
-                <Card></Card>
-                <Card></Card>
-                <Card></Card>
-                <Card></Card>
-                <Card></Card>
+            <div className="group-card">
                 <Card></Card>
                 <Card></Card>
             </div>

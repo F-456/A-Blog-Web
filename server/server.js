@@ -19,7 +19,7 @@ app.use("/auth", userRouter);
 db.sequelize.sync().then(() => {
     app.use(cors(corsOption));
     app.get("/api", (req, res) => {
-        res.json({ "users": ["Userone", "Usertwo", "Userthree", "Testing for express backend"] })
+        res.json({ "users": ["If appear backend is working"] })
     });
     app.listen(3001, () => {
         console.log("Server started on port 3001")
