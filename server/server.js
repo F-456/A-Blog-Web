@@ -11,7 +11,8 @@ const corsOption = {
 app.use(cors(corsOption));
 app.use(express.json());
 
-
+const blogRouter = require("./routes/blog");
+app.use("/blog", blogRouter);
 const userRouter = require("./routes/users");
 app.use("/auth", userRouter);
 

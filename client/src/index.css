@@ -185,3 +185,53 @@ hr {
   text-align: center;
   font-size: 20px;
 }
+
+
+.create_blog_position {
+  padding: 20px;
+}
+
+.create_blog_img {
+  margin-left: 88%;
+  max-width: 10%;
+  border-radius: 30%;
+}
+
+.create_blog_UI {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  text-align: center;
+  font: "Helvetica Neue";
+  width: 500px;
+}
+
+.create_blog_style {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  border-style: solid;
+  border: 3px solid grey;
+  border-radius: 7px;
+  padding: 10px;
+  font-size: 20px;
+}
+
+.create_blog_style #input_blog {
+  margin: 10px;
+  height: 40px;
+  font-size: 20px;
+  background-color: rgb(78, 78, 78);
+}
+
+.create_blog_style #input_blog_content {
+  margin: 10px;
+  height: 150px;
+  font-size: 20px;
+  background-color: rgb(78, 78, 78);
+}
+
+.create_blog_style #create_blog_button {
+  height: 40px;
+  margin: 10px;
+}
