@@ -5,6 +5,7 @@ import Home from "./pages/Home.jsx";
 import CreateACC from "./pages/CreateAccount.jsx";
 import Login from "./pages/login.jsx";
 import CreateBlog from "./pages/CreateBlog.jsx";
+import Blog from "./pages/Blogpage.jsx";
 
 //main function that ties everyting together
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path="/CreateAccount" element={<CreateACC />} />
         <Route path="/login" element={<Login />} />
         <Route path="/CreateBlog" element={<CreateBlog />} />
+        <Route path="/Blog/:id" element={<Blog />} />
       </Routes>
     </Router>
 
