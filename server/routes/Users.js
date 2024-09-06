@@ -2,6 +2,10 @@ const express = require("express");
 const router = express.Router();
 const { Users } = require("../models");
 const bcrypt = require("bcrypt");
+
+const { sign } = require('jsonwebtoken');
+
+
 let login_info = "";
 
 router.post("/", async (req, res) => {
@@ -16,6 +20,7 @@ router.post("/", async (req, res) => {
     });
 });
 
+//cheking login process
 router.post("/login", async (req, res) => {
     const { username, password } = req.body;
     const user = await Users.findOne({
@@ -29,8 +34,12 @@ router.post("/login", async (req, res) => {
         //only compare user and hashed password if a username is found   
     } else bcrypt.compare(password, user.password).then((match) => {
         if (match) {
-            res.json(`User ${username} has logged in`);
             login_info = `User ${username} has logged in`;
+            //creating token based on the username and id
+            const accessToken = sign({ username: user.username, id: user.id },
+                "somesecret");
+            console.log(`The user ${username} has been log in`);
+            res.json(accessToken);
         } else {
             res.json({ error: "password and username does not match" });
             login_info = "password and username does not match";

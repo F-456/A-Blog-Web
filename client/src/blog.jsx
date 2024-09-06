@@ -14,8 +14,17 @@ function Blog() {
 
     const [listOfBlog, setlistOfBlog] = useState([]);
     const navigate = useNavigate();
+
+    // Function to truncate content and add ellipsis
+    const truncateText = (text, maxLength) => {
+        if (text.length <= maxLength) {
+            return text;
+        }
+        return text.substring(0, maxLength) + '...';
+    };
+
     return (
-        <div>
+        <div className="Blog_container">
             {listOfBlog.map((value, key) => {
                 return (
 
@@ -23,9 +32,10 @@ function Blog() {
                         navigate(`/blog/${value.id}`)
                     }}>
                         <div className="blog_title ">Title: {value.title}</div>
-                        <div className="blog_content ">{value.content}</div>
+                        <div className="blog_content ">{truncateText(value.content, 100)}</div>
                         <div className="blog_username ">By- {value.username}</div>
-                    </div>)
+                    </div>
+                )
             })}
         </div>
 

@@ -1,10 +1,9 @@
 import React, { useEffect, userEffect, userState, useState } from 'react';
-import { Link } from "react-router-dom";
 import Header from "../Header.jsx";
 import Footer from "../footer.jsx";
 import axios from "axios"
-import create_blog from "../assets/create_blog.jpg";
 import Blog from "../blog.jsx";
+import Create_blog from '../create_blog_img.jsx';
 
 function Home() {
     //create a empty array for backend to display it 
@@ -29,12 +28,12 @@ function Home() {
         <>
             <Header></Header>
             <hr></hr>
-            <div>
+            <div >
                 <Blog></Blog>
             </div>
 
-            <div className='create_blog_position'>
-                <Link to="/CreateBlog"><img className='create_blog_img' src={create_blog} alt="creating your post" /> </Link>
+            <div>
+                <Create_blog></Create_blog>
             </div>
 
             {/* reading array from backend and displaying on react*/}

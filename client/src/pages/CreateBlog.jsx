@@ -2,9 +2,12 @@ import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 
 function createBlog() {
+    const navigate = useNavigate();
+
     const initialValues = {
         title: "",
         content: "",
@@ -13,17 +16,30 @@ function createBlog() {
     };
 
     const validationSchema = Yup.object().shape({
-        title: Yup.string().min(3).max(20).required("you must use a title"),
-        content: Yup.string().min(10).max(1000).required("you must have a content"),
+        title: Yup.string().min(3).max(50).required("you must use a title"),
+        content: Yup.string().min(10).max(3000).required("you must have a content"),
         username: Yup.string().min(3).max(20),
 
     });
 
     const onSubmit = (data) => {
         console.log("submitting form... loading")
-        axios.post("http://localhost:3001/blog", data).then(() => {
-            console.log(data);
-            console.log("Blog successfully posted");
+        // post request to create a blog
+        axios.post("http://localhost:3001/blog", data, {
+
+            //header for jwt auth, retrieving data from session storage
+            headers: {
+                accessToken: sessionStorage.getItem("accessToken"),
+            }
+        }
+        ).then((response) => {
+            if (response.data.error) {
+                alert(response.data.error);
+                navigate("../login");
+            } else {
+                console.log(data);
+                console.log("Blog successfully posted");
+            }
 
         }).catch(error => {
             console.error("error connecting to the server", error)

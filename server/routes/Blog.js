@@ -2,13 +2,15 @@ const express = require("express");
 const router = express.Router();
 const { Blogs } = require("../models");
 
+//use middleware to auth an user is valid to post any blog
+const { validateToken } = require("../middlewares/AuthMiddleware");
+
+
 //router of searching up blog of db
 router.get("/", async (req, res) => {
     const listofBlogs = await Blogs.findAll();
     res.json(listofBlogs);
 });
-
-
 
 //finding blog by individual id and response to the page
 router.get("/ID/:id", async (req, res) => {
@@ -19,7 +21,7 @@ router.get("/ID/:id", async (req, res) => {
 });
 
 //router of creating blog for the website
-router.post("/", async (req, res) => {
+router.post("/", validateToken, async (req, res) => {
     const { title, content, username } = req.body
     await Blogs.create({
         title: title,
@@ -27,6 +29,11 @@ router.post("/", async (req, res) => {
         username: username,
     });
     res.json('blog created');
+});
+
+//router for navigate to creating blog
+router.post("/createblog", validateToken, async (req, res) => {
+    res.json("User is logged in");
 });
 
 module.exports = router;

@@ -15,13 +15,16 @@ function Blog() {
             setBlog(response.data);
             console.log(response);
         });
-    }, {});
+    }, []);
     return (
         <div >
             <div className='Blog_id' >
                 <div className="Blog_id_title">Title: {Blog.title}</div>
-                <div className="Blog_id_content">Written By:{Blog.content}</div>
+                <div className="Blog_id_content">{Blog.content}</div>
                 <div className="Blog_id_user">Posted by:{Blog.username}</div>
+            </div>
+            <div>
+
             </div>
         </div>
 
