@@ -6,19 +6,19 @@ import { useNavigate } from "react-router-dom";
 
 
 function createBlog() {
+    const username = sessionStorage.getItem("setUsername");
     const navigate = useNavigate();
 
     const initialValues = {
         title: "",
         content: "",
-        username: "",
+        username: username,
 
     };
 
     const validationSchema = Yup.object().shape({
         title: Yup.string().min(3).max(50).required("you must use a title"),
         content: Yup.string().min(10).max(3000).required("you must have a content"),
-        username: Yup.string().min(3).max(20),
 
     });
 
@@ -39,6 +39,7 @@ function createBlog() {
             } else {
                 console.log(data);
                 console.log("Blog successfully posted");
+                navigate("/");
             }
 
         }).catch(error => {
@@ -69,12 +70,8 @@ function createBlog() {
                         rows="6"
                     />
                     <label>Username</label>
-                    <ErrorMessage name="username" component="span" />
-                    <Field
-                        id="input_blog"
-                        name="username"
-                        placeholder="your username"
-                    />
+                    <p>{username}</p>
+
                     <button type="submit" id="create_blog_button" >
                         submit
                     </button>

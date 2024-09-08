@@ -1,9 +1,12 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 
 function Login() {
+
+    const navigate = useNavigate()
     const [login_state, set_login_state] = useState({
         login_info: "",
     });
@@ -19,11 +22,13 @@ function Login() {
             } else {
                 //creating a token for user
                 sessionStorage.setItem("accessToken", response.data);
+                sessionStorage.setItem("setUsername", username);
+                sessionStorage.setItem("loginState", true);
+                alert("logged in successfully");
+                navigate("/");
             }
         });
     };
-
-
 
     //display whether a user is log in , no user is found or just the user and password does not match
     useEffect(() => {
