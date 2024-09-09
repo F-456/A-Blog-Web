@@ -1,18 +1,18 @@
 import { Link } from "react-router-dom";
-
+import Logout from "./logout";
 
 function Header() {
     const isloggedIn = sessionStorage.getItem("loginState");
     return (
         <header>
             <h1 className="headtitle"> Welcome to A Blog Web</h1>
-
+            {/* display only necessary navigation if the user is logged in  */}
             {isloggedIn ? (
                 <>
                     <nav className="horizontal_nav">
                         <ul>
-                            {/* adding link to other pages */}
 
+                            <li className="horizontal_list" ><a className="horizontal_a" href="" onClick={Logout} >Logout</a></li>
                             <li className="horizontal_list" ><a className="horizontal_a" href="">Contact</a></li>
                         </ul>
                     </nav>

@@ -32,6 +32,7 @@ hr {
 
 .headtitle {
   flex: 2;
+  margin-left: 20px;
   font-size: 3.5em;
   position: relative;
   z-index: 1;

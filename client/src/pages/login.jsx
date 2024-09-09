@@ -5,11 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 
 function Login() {
-
     const navigate = useNavigate()
-    const [login_state, set_login_state] = useState({
-        login_info: "",
-    });
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
@@ -30,14 +26,7 @@ function Login() {
         });
     };
 
-    //display whether a user is log in , no user is found or just the user and password does not match
-    useEffect(() => {
-        axios.get("http://localhost:3001/auth/user_login_info").then((response => {
-            set_login_state({
-                login_info: response.data.login_info,
-            });
-        }));
-    });
+
     return (
         <div><h1 className="login_title">Login with your account </h1>
             <div className="login_UI">
@@ -54,7 +43,7 @@ function Login() {
                     Login
                 </button>
             </div>
-            <h2 className="login_info" >{login_state.login_info}</h2>
+            <h2 className="login_info" ></h2>
         </div>
     );
 }

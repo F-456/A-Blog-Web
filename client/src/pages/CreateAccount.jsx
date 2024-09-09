@@ -1,5 +1,6 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import axios from "axios"
 
@@ -12,9 +13,9 @@ function CreateACC() {
 
     };
 
-
+    const navigate = useNavigate()
     const validationSchema = Yup.object().shape({
-        username: Yup.string().min(3).max(10).required().test("check-user", "username has been taken", async (value) => {
+        username: Yup.string().min(3).max(15).required().test("check-user", "username has been taken", async (value) => {
             if (!value)
                 return true;
             // Skip validation if value is empty and allow the user to use the name    
@@ -44,10 +45,16 @@ function CreateACC() {
 
     //posting data that user submit and post it into the sql
     const onSubmit = (data) => {
+
         axios.post("http://localhost:3001/auth", data).then(() => {
             console.log(data);
-            console.log("user successfully created")
+            console.log("user successfully created");
+            alert(`user ${username} successfully created`);
+
+
         });
+        navigate("/");
+
     };
 
     return (
@@ -77,6 +84,7 @@ function CreateACC() {
                     <Field
                         id="input_signup"
                         name="password"
+                        type="password"
                         placeholder="enter a password..."
                     />
                     <button type="submit" id="signup_button">
